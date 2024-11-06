@@ -37,16 +37,16 @@ class AilangSelfAttention(nn.Module):
         self.d_k = d_model // num_heads
         assert d_model % num_heads == 0, "d_model必须能够被num_heads整除"
 
-        self.query = nn.Linear(d_model, d_model).mlu()
+        self.query = nn.Linear(d_model, d_model).npu()
         self.query.weight = torch.nn.Parameter(al.from_numpy(pd["query.weight"]))
         self.query.bias = torch.nn.Parameter(al.from_numpy(pd["query.bias"]))
-        self.key = nn.Linear(d_model, d_model).mlu()
+        self.key = nn.Linear(d_model, d_model).npu()
         self.key.weight = torch.nn.Parameter(al.from_numpy(pd["key.weight"]))
         self.key.bias = torch.nn.Parameter(al.from_numpy(pd["key.bias"]))
-        self.value = nn.Linear(d_model, d_model).mlu()
+        self.value = nn.Linear(d_model, d_model).npu()
         self.value.weight = torch.nn.Parameter(al.from_numpy(pd["value.weight"]))
         self.value.bias = torch.nn.Parameter(al.from_numpy(pd["value.bias"]))
-        self.fc_out = nn.Linear(d_model, d_model).mlu()
+        self.fc_out = nn.Linear(d_model, d_model).npu()
         self.fc_out.weight = torch.nn.Parameter(al.from_numpy(pd["fc_out.weight"]))
         self.fc_out.bias = torch.nn.Parameter(al.from_numpy(pd["fc_out.bias"]))
 

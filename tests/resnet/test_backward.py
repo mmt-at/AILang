@@ -9,7 +9,7 @@ from ailang.util import check_intermediate, create_numpy_params
 def test_resnet():
     t_model = TorchResNet()
     pd = create_numpy_params(t_model)
-    a_model = AilangResNet(pd).mlu()
+    a_model = AilangResNet(pd).npu()
     x = np.random.randn(1, 3, 112, 112).astype(np.float32)
     t = torch.from_numpy(x).float()
     t.requires_grad = True

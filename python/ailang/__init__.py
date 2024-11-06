@@ -2,7 +2,7 @@
 from . import nn
 from .process.inout import from_numpy
 from torch import Tensor as array
-import torch_mlu
+import torch_npu
 from torch import add
 from torch import sum
 from torch import zeros

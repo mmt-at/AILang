@@ -13,7 +13,7 @@ def test_attention():
     num_heads = 1
     t_model = TorchSelfAttention(d_model=3, num_heads=1)
     pd = create_numpy_params(t_model)
-    a_model = AilangSelfAttention(pd, d_model, num_heads).mlu()
+    a_model = AilangSelfAttention(pd, d_model, num_heads).npu()
     x = np.random.randn(seq_len, d_model).astype(np.float32)
     a = al.from_numpy(x)
     t = torch.from_numpy(x)

@@ -54,8 +54,8 @@ class AilangLSTM(al.nn.Module):
 
     def forward(self, inputs):  # seq_len, batch, input_size
         batch_size = inputs.shape[1]
-        state_c = [al.zeros(batch_size, self.hidden_size, device="mlu") for _ in range(10)] # hardcode for ts compile
-        state_h = [al.zeros(batch_size, self.hidden_size, device="mlu") for _ in range(10)]
+        state_c = [al.zeros(batch_size, self.hidden_size, device="npu") for _ in range(10)] # hardcode for ts compile
+        state_h = [al.zeros(batch_size, self.hidden_size, device="npu") for _ in range(10)]
         for i in range(inputs.size()[0]):
             cur_input = inputs[i]
             for j, layer in enumerate(self.layers):

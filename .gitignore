@@ -4,3 +4,6 @@
 **/*log*
 /__pycache__/*
 **/__pycache__/*
+**/kernel**/
+**/kernel_cache**/
+**.json

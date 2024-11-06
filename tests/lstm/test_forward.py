@@ -11,7 +11,7 @@ def test_resnet():
     t_model = TorchLSTM(256,256,10)
     pd = create_numpy_params(t_model)
     
-    a_model = AilangLSTM(256,256,10,pd).mlu()
+    a_model = AilangLSTM(256,256,10,pd).npu()
     x = np.random.randn(64, 1, 256).astype(np.float32)
     t = torch.from_numpy(x)
     a = al.from_numpy(x)

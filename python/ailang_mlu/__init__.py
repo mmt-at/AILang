@@ -1,2 +1,2 @@
 import torch
-import torch_mlu
+import torch_npu
